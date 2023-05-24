@@ -136,8 +136,18 @@ class _NavBarPageState extends State<NavBarPage> {
       'profile': ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+
+    final MediaQueryData queryData = MediaQuery.of(context);
+
     return Scaffold(
-      body: _currentPage ?? tabs[_currentPageName],
+      body: MediaQuery(
+          data: queryData.copyWith(
+            size: Size(
+              queryData.size.width,
+              queryData.size.height + queryData.padding.bottom,
+            ),
+          ),
+          child: _currentPage ?? tabs[_currentPageName]!),
       extendBody: true,
       bottomNavigationBar: FloatingNavbar(
         currentIndex: currentIndex,

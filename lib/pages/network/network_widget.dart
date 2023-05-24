@@ -81,6 +81,7 @@ class _NetworkWidgetState extends State<NetworkWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
